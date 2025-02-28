@@ -1,6 +1,62 @@
-body{
-background-color: #9373F9;
+body {
+    background-color: #9373F9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
-.login{
-    
+
+.container {
+    background-color: #C7B3F3;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+.logo img {
+    width: 80px;  /* Define o tamanho da imagem */
+    height: 80px; /* Mantém a altura proporcional */
+    border-radius: 50%; /* Torna a imagem redonda */
+    display: block;
+    margin: 0 auto 20px; /* Centraliza e dá espaço abaixo */
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7D5CFB;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background-color: #7D5CFB;
+}
+
+.btn:hover {
+    opacity: 0.9;
 }
