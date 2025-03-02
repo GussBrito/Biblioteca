@@ -48,7 +48,8 @@ input {
     background-color: #fff;
 }
 
-.btn {
+/* Estilo do botão Entrar */
+.btn-entrar {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -60,13 +61,47 @@ input {
     cursor: pointer;
 }
 
-.btn.secondary {
+/* Estilo do botão Entrar */
+.btn-entrar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
     background-color: #7D5CFB;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.btn:hover {
+/* Estilo do link Cadastrar */
+.btn-cadastrar {
+    display: inline-block; /* Faz o link se comportar como um botão */
+    width: 100%; /* Faz o link ocupar a mesma largura */
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7D5CFB; /* Verde */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none; /* Remove o sublinhado do link */
+    cursor: pointer; /* Garante que o cursor pareça um botão */
+    transition: background-color 0.3s ease; /* Adiciona um efeito suave para hover */
+}
+
+/* Quando o mouse passa sobre os botões */
+.btn-entrar:hover, .btn-cadastrar:hover {
     opacity: 0.9;
 }
+
+/* Foco nos links para aparência de botão */
+.btn-cadastrar:focus {
+    outline: none;
+}
+
+
 .password-container{
     position: relative;
     width: 100%;
