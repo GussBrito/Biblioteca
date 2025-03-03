@@ -4,10 +4,10 @@ document.getElementById("toggleSenha").addEventListener("click", function () {
 
     if (senhaInput.type === "password") {
         senhaInput.type = "text";
-        this.textContent = "📖"; // Ícone de livro fechado
+        this.textContent = "📖"; // Ícone de livro aberto
     } else {
         senhaInput.type = "password";
-        this.textContent = "📕"; // Ícone de livro aberto
+        this.textContent = "📕"; // Ícone de livro fechado
     }
 });
 
@@ -15,12 +15,16 @@ document.getElementById("toggleSenha").addEventListener("click", function () {
 document.querySelector(".btn-entrar").addEventListener("click", function (event) {
     event.preventDefault(); // Impede o comportamento padrão do formulário
 
-    // Captura os valores do usuário e senha
     let usuario = document.getElementById("usuario").value;
     let senha = document.getElementById("senha").value;
 
-    // Aqui você pode adicionar a lógica de autenticação para o login do usuário normal
-    sessionStorage.setItem("login", "true"); // Simula um login bem-sucedido
+    if (usuario === "" || senha === "") {
+        alert("Preencha todos os campos para entrar.");
+        return;
+    }
+
+    // Simula um login bem-sucedido
+    sessionStorage.setItem("login", "true");
     window.location.href = "principal.html"; // Redireciona para a página principal
 });
 
@@ -33,50 +37,54 @@ if (window.location.pathname.includes("principal.html") && !sessionStorage.getIt
 document.querySelector(".btn-cadastrar").addEventListener("click", function (event) {
     event.preventDefault(); // Impede o comportamento padrão do formulário
 
-    // Captura a senha de administrador fornecida pelo usuário
-    let adminSenha = document.getElementById("admin-senha").value;
-    const adminPassword = "senhaSegura"; // Defina a senha de administrador real
+    let adminSenhaInput = document.getElementById("admin-senha");
 
-    // Verifica se a senha de administrador está correta
+    if (!adminSenhaInput) {
+        alert("Campo de senha de administrador não encontrado.");
+        return;
+    }
+
+    let adminSenha = adminSenhaInput.value;
+    const adminPassword = "ADM"; // Defina a senha real do administrador
+
     if (adminSenha === adminPassword) {
-        // Redireciona para a página de cadastro se a senha estiver correta
-        window.location.href = "cadastro.html";
+        sessionStorage.setItem("admin", "true"); // Marca que o admin está autenticado
+        window.location.href = "cadastro.html"; // Redireciona para a página de cadastro
     } else {
-        // Caso a senha de administrador esteja incorreta, exibe uma mensagem de erro
         alert("Senha de administrador incorreta. Você não tem permissão para cadastrar.");
     }
 });
 
-// Cadastro do usuário
+// Verifica se o usuário acessou a página de cadastro sem ser administrador
+if (window.location.pathname.includes("cadastro.html") && !sessionStorage.getItem("admin")) {
+    window.location.href = "index.html"; // Redireciona de volta ao login
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    let btnSalvar = document.getElementById("btnSalvar");
+    let btnSalvar = document.getElementById("btnCadastrar");
 
     if (btnSalvar) {
         btnSalvar.addEventListener("click", function (event) {
             event.preventDefault(); // Impede o envio do formulário
 
-            // Captura os valores dos inputs
             let usuario = document.getElementById("usuario").value;
             let email = document.getElementById("email").value;
             let cpf = document.getElementById("CPF").value;
             let senha = document.getElementById("senha").value;
 
-            // Verifica se todos os campos estão preenchidos
             if (usuario === "" || email === "" || cpf === "" || senha === "") {
                 alert("Preencha todos os campos!");
                 return;
             }
 
-            // Salva os dados (simulação do banco de dados, como localStorage ou banco real)
-            alert("Cadastro realizado com sucesso!");
+            alert("Cadastro realizado com sucesso! Redirecionando para a tela de login...");
 
-            // Após o cadastro, redireciona para a página de login
-            window.location.href = "index.html"; // Redireciona para a página de login
+            sessionStorage.removeItem("admin"); // Remove o acesso de administrador
+
+            // Aguarda 2 segundos antes de redirecionar
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
         });
     }
 });
-
-// Verifica se o usuário acessou a página de cadastro sem ser administrador
-if (window.location.pathname.includes("cadastro.html") && !sessionStorage.getItem("login")) {
-    window.location.href = "index.html"; // Redireciona de volta ao login
-}
