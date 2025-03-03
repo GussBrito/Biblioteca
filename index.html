@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliotecário</title>
+    <title>Livro Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,6 +12,7 @@
     <div class="container">
         <div class="login-box">
             <div class="logo">
+                
                 <img src="icon.jpg" alt="Ícone do livro">
             </div>
             <form>
@@ -22,13 +23,18 @@
                 <input type="password" id="senha" placeholder="Digite sua senha">
                 <span type="button" id="toggleSenha">📖</span>
 
-                <button class="btn">Entrar</button>
-                <button class="btn secondary">Cadastrar</button>
+                <label for="admin-senha">Senha de Administrador</label>
+    <input type="password" id="admin-senha" placeholder="Digite a senha de administrador" />
+
+
+                <button class="btn-entrar">Entrar</button>
+            
+                <button class="btn-cadastrar">Cadastrar</button>
             </form>
         </div>
     </div>
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
 </body>
 
 </html>
