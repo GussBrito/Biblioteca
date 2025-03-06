@@ -92,3 +92,39 @@ h1 {
     font-size: 16px;
 
 }
+.content-box {
+    background-color: white; 
+    padding: 40px; 
+    border-radius: 10px;
+    max-width: 2000px; 
+    width: 90%; 
+    position: relative; 
+    top: 20px; 
+    margin: 0 auto; 
+    text-align: center;
+    display: grid; /* Usando grid para organização */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanho igual */
+    gap: 20px; /* Espaço entre os livros */
+    height: auto; 
+}
+
+.livro {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.capa-livro {
+    width: 50%; /* Ajusta para ocupar toda a largura do container *//* Altura fixa para todas as imagens */
+    object-fit: fill; /* Faz a imagem se ajustar corretamente, sem distorção */
+    border-radius: 10px;
+}
+
+.titulo-livro {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
