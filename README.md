@@ -16,7 +16,6 @@ Bem-vindo ao **O Livro**, um sistema simples, bonito e intuitivo voltado para bi
 - 🔍 Busca rápida e eficiente no acervo
 - ✨ Interface amigável e moderna
 - 📅 Gerenciamento de empréstimos e devoluções
-- 📈 Relatórios e estatísticas
 
 ## 🌐 Como Rodar o Projeto
 
