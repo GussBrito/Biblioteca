@@ -3,19 +3,63 @@
         <a href="/home">
             <div class="logo"><img src="/assets/images/icon.jpg" alt="">
         </a>
+        {{#if (eq user.role "admin")}}
+            <span class="text">Você é um administrador!</span>
+        {{/if}}
+        {{#if (eq user.role "bibliotecary")}}
+            <span class="text">Você é Bibliotecário(a)!</span>
+        {{/if}}
     </div>
 </div>
-<div class="search-container">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Pesquisar Livros...">
-    <button class="btn-entrar">Adicionar Livros *Sem funcionalidade</button>
-    <button class="btn-entrar">Editar *Sem funcionalidade</button>
-    <button class="btn-entrar detailBtn" onclick="buscarLivros()">Buscar</button>
-</div>
+{{#if (eq user.role "bibliotecary")}}
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="Pesquisar Livros...">
+        <button class="btn-entrar">Adicionar Livros *Sem funcionalidade</button>
+        <button class="btn-entrar">Editar *Sem funcionalidade</button>
+        <button class="btn-entrar detailBtn" onclick="buscarLivros()">Buscar</button>
+    </div>
+{{/if}}
 </div>
 <p>
 <div class="content-box">
 
-    <h3>Comece buscando algum livro</h3>
+    {{#if (eq user.role "bibliotecary")}}
+        <h3>Bem vindo(a), {{user.name}}!</h3>
+    {{/if}}
+
+    {{#if (eq user.role "admin")}}
+        <div class="form-area">
+            <h3>Bem vindo(a), {{user.username}}! Adicione um novo bibliotecário!</h3>
+            <form action="/admin/addBibliotecary" method="post">
+                <div class="local-input">
+                    <label for="emailBibliotecary">Nome</label>
+                    <input type="text" placeholder="Nome do bibliotecário..." name="bname">
+                </div>
+                <div class="local-input">
+                    <label for="emailBibliotecary">E-mail</label>
+                    <input type="email" placeholder="E-mail do bibliotecário..." name="bemail">
+                </div>
+                <div class="local-input">
+                    <label for="cpfBibliotecary">CPF</label>
+                    <input type="text" placeholder="xxx.xxx.xxx-xx" name="bcpf">
+                </div>
+                <button type="submit" class="btn-entrar detailBtn">Adicionar</button>
+            </form>
+        </div>
+        <hr>
+        <div class="blist">
+            <h3>Lista de bibliotecarios no sistema:</h3>
+            <ul>
+                {{#each bibliotecary}}
+                    <li class="list-group">{{this.name}} - {{this.email}}</li>
+                {{else}}
+                    <div class="contet">
+                        <h5>Nenhum bibliotecário cadastrado!</h5>
+                    </div>
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
     <div class="result" id="resultContainer"></div>
     {{!-- <div class="livro">
         <img src="/assets/images/harryPotter.jpg" alt="Capa do Livro 1" class="capa-livro">

@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs')
 const crypto = require('crypto')
 const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
+const Bibliotecary = require('../models/Bibliotecary.js')
 
 //Rota para tela de cadastro
 routerRegister.get('/register', (req, res) => {
@@ -25,10 +26,16 @@ routerRegister.post('/register', (req, res) => {
         req.flash('error_msg', 'A senha tem que ter no mínimo 5 caracteres!')
         return res.redirect(req.headers.referer)
     }
-    User.findOne({cpf})
+    //Filtrando usuário pelo cpf e email
+    User.findOne({$or: [{cpf}, {email}]})
     .then((user) => {
-        if(user){
+        if(user && user.cpf === cpf){
             req.flash('error_msg', 'CPF já cadastrado!')
+            return res.redirect(req.headers.referer)
+        }
+
+        if(user && user.email === email){
+            req.flash('error_msg', 'E-mail já cadastrado!')
             return res.redirect(req.headers.referer)
         }
 
@@ -139,6 +146,43 @@ routerRegister.get('/verifyEmail/:token', (req, res) => {
         if(!res.hasHeader){
             res.status(500).send(`Erro ao validar e-mail ERRO: ${error}`)
         }  
+    })
+})
+
+//Rota para criação da senha
+routerRegister.get('/finalyAccount/:idUser', (req, res) => {
+    res.render('pages/finalyAccount')
+})
+
+//Rota para adição de senha de bibliotecário
+routerRegister.post('/finalyAccount/:idUser', (req, res) => {
+    const { idUser } = req.params
+    const { password, passwordR } = req.body
+
+    if(password !== passwordR){
+        req.flash('error_msg', 'As senhas não coincidem!')
+        return res.redirect(req.headers.referer)
+    }
+
+    if(password.length < 5){
+        req.flash('error_msg', 'A senha tem que ter no mínimo 5 caracteres!')
+        return res.redirect(req.headers.referer)
+    }
+
+    const houndSalts = 10
+    bcrypt
+    .hash(password, houndSalts)
+    .then((hash) => {
+        Bibliotecary.findByIdAndUpdate(idUser, { password: hash })
+        .then(() => {
+            req.flash('success_msg', 'Senha definida com sucesso!')
+            return res.redirect('/')
+        })
+        .catch((error) => {
+            req.flash('error_msg', 'Erro ao tentar definir senha!')
+            console.log(error)
+            return res.redirect(req.headers.referer)
+        })
     })
 })
 
