@@ -29,7 +29,13 @@ body {
     background-color: #7D5CFB;
     padding: 10px;
 }
-
+.list-group{
+    background-color: #502ae969;
+    color: white;
+    padding: 15px;
+    list-style: none;
+    border-radius: 10px;
+}
 .localPass{
     background-color: #ffffff80;
     padding: 20px;

@@ -48,14 +48,16 @@
         </div>
         <hr>
         <div class="blist">
-            {{#each bibliotecary}}
-            
-            {{else}}
-                <div class="contet">
-                    <h3>Lista de bibliotecarios no sistema:</h3>
-                    <h5>Nenhum bibliotecário cadastrado!</h5>
-                </div>
-            {{/each}}
+            <h3>Lista de bibliotecarios no sistema:</h3>
+            <ul>
+                {{#each bibliotecary}}
+                    <li class="list-group">{{this.name}} - {{this.email}}</li>
+                {{else}}
+                    <div class="contet">
+                        <h5>Nenhum bibliotecário cadastrado!</h5>
+                    </div>
+                {{/each}}
+            </ul>
         </div>
     {{/if}}
     <div class="result" id="resultContainer"></div>

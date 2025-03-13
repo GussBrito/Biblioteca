@@ -5,6 +5,7 @@ const routerLogin = express.Router()
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 const { isAuthenticated } = require('../configs/auth')
+const Bibliotecary = require('../models/Bibliotecary')
 
 
 routerLogin.get('/', (req, res) => {
@@ -24,7 +25,13 @@ routerLogin.post('/', (req, res, next) => {
 //Rota de Home page
 routerLogin.get('/home', isAuthenticated, (req, res) => {
     const user = req.user
-    res.render('pages/home', {user})
+    Bibliotecary.find()
+    .then((bibliotecary) => {
+        res.render('pages/home', {
+            user,
+            bibliotecary
+        })
+    })
 })
 
 
