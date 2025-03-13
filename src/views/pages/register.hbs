@@ -1,0 +1,27 @@
+<div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <a href="/">
+                <img src="/assets/images/icon.jpg" alt="Ícone do livro">
+            </a>
+            </div>
+            <form method="post" action="/user/register">
+                <label for="usuario">Nome do usuário</label>
+                <input type="text" id="usuario" required name="username" placeholder="Digite seu usuário">
+
+                <label for="email">E-mail</label>
+                <input type="text" id="email" required name="email" placeholder="Digite seu E-mail">
+                
+                <label for="CPF">CPF</label>
+                <input type="text" id="CPF" required name="cpf" placeholder="Digite seu CPF">
+
+                <label for="senha">Crie sua senha</label>
+                <input type="password" required name="password" id="senha" placeholder="Digite sua senha">
+
+                <label for="confirSenha">Repita a senha</label>
+                <input type="password" required name="passwordReap" placeholder="Repita a senha...">
+                
+                <button id="btnCadastrar" type="submit" class="btn-cadastrar">Salvar</button>
+            </form>
+        </div>
+    </div>

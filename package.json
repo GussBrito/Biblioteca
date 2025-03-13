@@ -1,0 +1,35 @@
+{
+  "name": "biblioteca",
+  "version": "1.0.0",
+  "description": "Bem-vindo ao **O Livro**, um sistema simples, bonito e intuitivo voltado para bibliotecas virtuais e físicas. Nosso objetivo é proporcionar uma experiência fácil e chamativa para gestão de acervos literários, garantindo praticidade e eficiência na administração de livros.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasPaulo001/Biblioteca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasPaulo001/Biblioteca/issues"
+  },
+  "homepage": "https://github.com/LucasPaulo001/Biblioteca#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "connect-flash": "^0.1.1",
+    "cryptojs": "^2.5.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.12.1",
+    "nodemailer": "^6.10.0",
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0"
+  }
+}
