@@ -9,31 +9,31 @@ const Bibliotecary = require('../models/Bibliotecary');
 function passportConfig(passport) {
     passport.use(new LocalStrategy(
         { usernameField: 'cpf', passwordField: 'password' },
-        (cpf, password, done) => {
-            // Primeiro busca no User
-            User.findOne({ cpf })
-                .then(usuario => {
-                    if (usuario) {
-                        return bcrypt.compare(password, usuario.password)
-                            .then(isMatch => {
-                                if (isMatch) return done(null, usuario);
-                                return done(null, false, { message: 'Senha incorreta!' });
-                            });
-                    }
-                    // Se não encontrou no User, busca no Bibliotecary
-                    return Bibliotecary.findOne({ cpf });
-                })
-                .then(bibliotecario => {
-                    if (bibliotecario) {
-                        return bcrypt.compare(password, bibliotecario.password)
-                            .then(isMatch => {
-                                if (isMatch) return done(null, bibliotecario);
-                                return done(null, false, { message: 'Senha incorreta!' });
-                            });
-                    }
-                    return done(null, false, { message: 'Conta não encontrada!' });
-                })
-                .catch(error => done(error));
+        async (cpf, password, done) => {
+            try {
+                // Primeiro busca no User
+                let usuario = await User.findOne({ cpf });
+                if (usuario) {
+                    // Verificando a senha do usuário
+                    const isMatch = await bcrypt.compare(password, usuario.password);
+                    if (isMatch) return done(null, usuario);
+                    return done(null, false, { message: 'Senha incorreta!' });
+                }
+                
+                // Se não encontrou no User, busca no Bibliotecary
+                let bibliotecario = await Bibliotecary.findOne({ cpf });
+                if (bibliotecario) {
+                    // Verificando a senha do bibliotecário
+                    const isMatch = await bcrypt.compare(password, bibliotecario.password);
+                    if (isMatch) return done(null, bibliotecario);
+                    return done(null, false, { message: 'Senha incorreta!' });
+                }
+
+                // Se não encontrou no User nem no Bibliotecary
+                return done(null, false, { message: 'Conta não encontrada!' });
+            } catch (error) {
+                return done(error);
+            }
         }
     ));
 
