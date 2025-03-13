@@ -1,0 +1,199 @@
+body {
+    background-color: #9373F9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.content-box h3{
+    color: white;
+}
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detailBtn{
+    border: 1px solid white !important;
+    transition: .2s ease-in-out;
+}
+.detailBtn:hover{
+    background-color: #502ae9;
+}
+
+.result-item{
+    background-color: #ffffff82;
+    padding: 20px;
+    border: 2px solid white;
+    backdrop-filter: blur(5px);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.detail a{
+    text-decoration: none;
+    color: white;
+}
+.result{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px;
+}
+
+.container {
+    background-color: #C7B3F3;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+.logo img {
+    width: 80px;  /* Define o tamanho da imagem */
+    height: 80px; /* Mantém a altura proporcional */
+    border-radius: 50%; /* Torna a imagem redonda */
+    display: block;
+    margin: 0 auto 20px; /* Centraliza e dá espaço abaixo */
+}
+.alert-success{
+    background-color: #00800096;
+    color: white;
+    padding: 15px;
+    box-shadow: 3px 4px 4px white;
+    font-family: cursive;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(1px);
+}
+.alert-danger{
+    background-color: #ff00008f;
+    color: white;
+    padding: 15px;
+    box-shadow: 3px 4px 4px white;
+    font-family: cursive;
+    border-radius: 15px;
+    margin: 20px;
+    backdrop-filter: blur(1px);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;/*coloca o espaço para preencher no centro*/
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+/* Estilo do botão Entrar */
+.btn-entrar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7D5CFB;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo do botão Entrar */
+.btn-entrar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7D5CFB;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo do link Cadastrar */
+.btn-cadastrar {
+    display: inline-block; /* Faz o link se comportar como um botão */
+    width: 100%; /* Faz o link ocupar a mesma largura */
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #7D5CFB; /* Verde */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none; /* Remove o sublinhado do link */
+    cursor: pointer; /* Garante que o cursor pareça um botão */
+    transition: background-color 0.3s ease; /* Adiciona um efeito suave para hover */
+}
+
+/* Quando o mouse passa sobre os botões */
+.btn-entrar:hover, .btn-cadastrar:hover {
+    opacity: 0.9;
+}
+
+/* Foco nos links para aparência de botão */
+.btn-cadastrar:focus {
+    outline: none;
+}
+
+
+.password-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.password-container input{
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.password-container button{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+#toggleSenha{
+    cursor: pointer;
+}
+.password-container span {
+    position: absolute;
+    right: 10px; /* Ajusta a posição do ícone */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Corrige o cursor para parecer um botão */
+    font-size: 18px;
+    color: #555;
+    user-select: none; /* Evita que o ícone seja selecionado como texto */
+}
+
+
+

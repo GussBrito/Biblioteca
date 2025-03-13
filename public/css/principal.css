@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9373F9;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    color: #fefefe;
+}
+.content-box {
+    background-color: white; /* Fundo da caixa */
+    padding: 40px; /* Aumentei o padding para mais espaçamento interno */
+    border-radius: 10px;
+    max-width: 2000px; /* Maior largura para a caixa */
+    width: 90%; /* Largura relativa da caixa */
+    height: 70vh; /* Altura da caixa (70% da altura da tela) */
+    position: relative; /* Mudando para relative para não interferir no layout */
+    top: 20px; /* Dando uma margem superior para evitar o cabeçalho */
+    margin: 0 auto; /* Centraliza a caixa horizontalmente */
+    text-align: center;
+}
+
+.content-cabecalho{
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0, 0,1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cabecalho-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os itens */
+    padding-left: 20px;
+    }
+
+.logo img {
+    width: 50px;  /* Define o tamanho da imagem */
+    height: 50px; /* Mantém a altura proporcional */
+    border-radius: 50%; /* Torna a imagem redonda */
+}
+.btn {
+    padding: 10px 15px;
+    margin-top: 0px;
+    border: none;
+    border-radius: 20px;
+    background-color: #7D5CFB;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background-color: #7D5CFB;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.search-bar {
+    padding: 10px;
+    padding-left: 35px;
+    border: 2px solid #9373F9;
+    border-radius: 20px;
+    width: 450px;
+    outline: none;
+    font-size: 14px;
+    text-align: left;
+}
+
+.search-bar:focus {
+    border-color: #7A5FD1;
+}
+.search-container{
+    position: relative;
+    display: flex;
+    align-items:center;
+    padding-right: 50px;
+}
+.search-container i {
+    position: absolute;
+    left: 10px;
+    color: #9373F9;
+    font-size: 16px;
+
+}
+.content-box {
+    background-color: white; 
+    padding: 40px; 
+    border-radius: 10px;
+    max-width: 2000px; 
+    width: 90%; 
+    position: relative; 
+    top: 20px; 
+    margin: 0 auto; 
+    text-align: center;
+    display: grid; /* Usando grid para organização */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanho igual */
+    gap: 20px; /* Espaço entre os livros */
+    height: auto; 
+}
+
+.livro {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.capa-livro {
+    width: 50%; /* Ajusta para ocupar toda a largura do container *//* Altura fixa para todas as imagens */
+    object-fit: fill; /* Faz a imagem se ajustar corretamente, sem distorção */
+    border-radius: 10px;
+}
+
+.titulo-livro {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}

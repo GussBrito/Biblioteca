@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+
+    {{!-- css local --}}
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    {{> messages}}
+    {{{body}}}
+
+    <script type="module" src="/js/script.js" defer></script>
+    <script src="/js/APIBooks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>
