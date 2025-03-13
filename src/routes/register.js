@@ -70,7 +70,7 @@ routerRegister.post('/register', (req, res) => {
                     })
 
                     //Gerando link de verificação
-                    const link = `http://localhost:3000/user/verifyEmail/${token}`
+                    const link = `https://biblioteca-1zio.onrender.com/user/verifyEmail/${token}`
 
                     transporter.sendMail({
                         to: newUser.email,
