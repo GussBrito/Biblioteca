@@ -6,6 +6,7 @@ const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
 const connectDataBase = require('./configs/db')
+const passport = require('passport')
 
 //Configurações
 
@@ -17,6 +18,15 @@ app.use(express.urlencoded({extended: true}))
 app.engine('hbs', exphbs.engine({
     extname: 'hbs',
     defaultLayout: 'main',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true
+    },
+    helpers: {
+        eq: (a, b) => {
+            return a===b
+        }
+    }
 }))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
@@ -30,6 +40,12 @@ app.use(
         cookie: {secure: false}
     })
 )
+
+//Configuração do passport
+const { passportConfig } = require('./configs/auth')
+passportConfig(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Cofiguração das mensagens flash
 app.use(flash())
@@ -53,7 +69,9 @@ connectDataBase(app)
 //Importação das rotas
 const login = require('./routes/login')
 const register = require('./routes/register')
+const admin = require('./routes/admin')
 
+app.use('/admin', admin)
 app.use('/user', register)
 app.use('/', login)
 

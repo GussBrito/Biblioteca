@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     tokenVerificacao: { type: String },
     emailVerificado: { type: Boolean, default: false },
     tokenVerificado: { type: String },
-    admPassword: {type: String, required: true}
+    role: {type: String, enum: ['bibliotecary', 'admin'], default: ''}
 })
 
 const User = mongoose.model('User', UserSchema)

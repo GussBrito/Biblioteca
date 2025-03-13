@@ -10,6 +10,49 @@ body {
 .content-box h3{
     color: white;
 }
+.logo{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.containerPass{
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.localPass h4{
+    text-align: center;
+    border-bottom: 1px solid;
+    color: white;
+    background-color: #7D5CFB;
+    padding: 10px;
+}
+
+.localPass{
+    background-color: #ffffff80;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.contet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.text{
+    color: white;
+    padding: 15px;
+    background-color: #8162ff;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: 2px 3px 6px;
+}
 .search-container{
     display: flex;
     flex-direction: column;
@@ -95,9 +138,20 @@ label {
     font-weight: bold;
     text-align: center;
 }
+.form-area{
+    background-color: #ffffff4d;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px;
+}
+.local-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 input {
-    width: 100%;
+    width: auto;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -117,6 +171,9 @@ input {
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+form a{
+    width: 100%;
 }
 
 /* Estilo do botão Entrar */
@@ -195,5 +252,15 @@ input {
     user-select: none; /* Evita que o ícone seja selecionado como texto */
 }
 
-
+@media(max-width: 640px){
+    .text{
+        color: white;
+        padding: 15px;
+        background-color: #8162ff;
+        border-radius: 10px;
+        position: relative;
+        margin: 15px;
+        box-shadow: 2px 3px 6px;
+    }
+}
 
