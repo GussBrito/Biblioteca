@@ -29,10 +29,6 @@ Bem-vindo ao **O Livro**, um sistema simples, bonito e intuitivo voltado para bi
 
 Ficamos felizes com contribuições! Sinta-se à vontade para enviar PRs ou abrir issues.
 
-## 🎬 Demonstração
-
-(Adicione aqui capturas de tela ou gifs do sistema em funcionamento)
-
 ## 🚀 Contato
 
 Caso tenha dúvidas ou sugestões, entre em contato:
