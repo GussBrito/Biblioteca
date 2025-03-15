@@ -35,4 +35,4 @@ Caso tenha dúvidas ou sugestões, entre em contato:
 - **GitHub**: [GussBrito](https://github.com/GussBrito)
 
 ---
-Feito com ❤️ por Gustavo Brito, Felipe Parnaiba...
+Feito com ❤️ por Gustavo Brito, Felipe Parnaiba, Vanessa Beatriz, Samuel e Lucas Paulo
